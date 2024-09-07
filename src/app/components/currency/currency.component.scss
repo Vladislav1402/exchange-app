@@ -1,0 +1,112 @@
+:host {
+  .wrapper {
+    display: grid;
+    place-items: center;
+    height: 100dvh;
+    width: 100%;
+
+    .container {
+      border-radius: 20px;
+      padding: 50px;
+      -webkit-box-shadow: 0px 8px 24px 0px rgba(66, 68, 90, 1);
+      -moz-box-shadow: 0px 8px 24px 0px rgba(66, 68, 90, 1);
+      box-shadow: 0px 8px 24px 0px rgba(66, 68, 90, 1);
+    }
+
+    .currency-description {
+      margin-bottom: 30px;
+    }
+
+    .input-wrapper {
+      position: relative;
+
+      button {
+        position: absolute;
+        right: 25px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #fff;
+        border: none;
+      }
+
+      .copy-icon {
+        width: 21px;
+        height: auto;
+      }
+    }
+
+    .input-wrapper:focus {
+      display: none;
+    }
+
+    .image {
+      width: 20px;
+      height: 20px;
+    }
+    .converter-container {
+      display: flex;
+      gap: 5rem;
+    }
+
+    .currency-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .currency-item {
+      gap: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    .input-container {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    input[type="number"] {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+      width: 212px;
+
+      @media screen and (max-width: 767px) {
+        width: 180px;
+      }
+    }
+
+    .custom-select {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+      background-color: #fff;
+      cursor: pointer;
+    }
+
+    .custom-select:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+
+    .custom-select option {
+      font-size: 1rem;
+    }
+  }
+
+  ::ng-deep {
+    .p-dropdown.p-component {
+      width: 212px;
+
+      @media screen and (max-width: 767px) {
+        width: 180px;
+      }
+    }
+  }
+}

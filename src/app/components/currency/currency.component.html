@@ -1,0 +1,96 @@
+<div class="wrapper">
+    <div class="container">
+        <h1>Currency Converter</h1>
+        <h3 class="currency-description">
+            <span>{{currency1.sublabel}}</span>
+            <span> to </span>
+            <span>{{currency2.sublabel}}</span>
+        </h3>
+        <div class="converter-container">
+            <div class="currency-container">
+                <p-dropdown
+                    (onChange)="onCurrencyFirstChange()"
+                    [options]="currencies"
+                    [(ngModel)]="currency1"
+                    [filter]="true"
+                    [filterPlaceholder]="'Search'">
+                    <ng-template let-item pTemplate="item">
+                        <div class="currency-item">
+                            <img [src]="item.image" alt="flag" class="image" />
+                            <span>{{ item.label }}</span>
+                        </div>
+                    </ng-template>
+
+                    <ng-template let-item pTemplate="selectedItem">
+                        <div class="currency-item">
+                            <img [src]="item.image" alt="flag" class="image" />
+                            <span>{{ item.label }}</span>
+                        </div>
+                    </ng-template>
+                </p-dropdown>
+                <div class="input-wrapper">
+                    <input
+                        (focus)="onFocusInput(1)"
+                        (blur)="onBlurInput(1)"
+                        type="number"
+                        [(ngModel)]="amount1"
+                        (ngModelChange)="onAmountFirstChange()"
+                        placeholder="Amount"
+                        min="0">
+                    <button
+                        *ngIf="showCopyButton1 && amount1"
+                        [autoHide]="false"
+                        pTooltip="Copy to clipboard"
+                        tooltipPosition="bottom"
+                        (focus)="onFocusInput(1)"
+                        (mousedown)="copyToClipboard(amount1, $event)">
+                        <img class="copy-icon" src="/assets/images/copy.png" alt="copy-icon">
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="currency-container">
+                <p-dropdown
+                    (onChange)="onCurrencySecondChange()"
+                    [options]="currencies"
+                    [(ngModel)]="currency2"
+                    [filter]="true"
+                    [filterPlaceholder]="'Search'">
+                    <ng-template let-item pTemplate="item">
+                        <div class="currency-item">
+                            <img [src]="item.image" alt="flag" class="image" />
+                            <span>{{ item.label }}</span>
+                        </div>
+                    </ng-template>
+
+                    <ng-template let-item pTemplate="selectedItem">
+                        <div class="currency-item">
+                            <img [src]="item.image" alt="flag" class="image" />
+                            <span>{{ item.label }}</span>
+                        </div>
+                    </ng-template>
+                </p-dropdown>
+                <div class="input-wrapper">
+                    <input
+                        (focus)="onFocusInput(2)"
+                        (blur)="onBlurInput(2)"
+                        type="number"
+                        [(ngModel)]="amount2"
+                        (ngModelChange)="onAmountSecondChange()"
+                        placeholder="Amount"
+                        min="0">
+                    <button
+                        *ngIf="showCopyButton2 && amount2"
+                        [autoHide]="false"
+                        pTooltip="Copy to clipboard"
+                        tooltipPosition="bottom"
+                        (focus)="onFocusInput(2)"
+                        (mousedown)="copyToClipboard(amount2, $event)">
+                        <img class="copy-icon" src="/assets/images/copy.png" alt="copy-icon">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

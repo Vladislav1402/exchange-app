@@ -8,6 +8,10 @@ import { DropdownModule } from 'primeng/dropdown';
 import { ChartModule } from 'primeng/chart';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { FormsModule } from '@angular/forms';
+import { CurrencyComponent } from './components';
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app.routing.module';
+import { TooltipModule } from 'primeng/tooltip';
 
 @NgModule({
     imports: [
@@ -17,11 +21,16 @@ import { FormsModule } from '@angular/forms';
         DropdownModule,
         ChartModule,
         ProgressSpinnerModule,
-        FormsModule
+        FormsModule,
+        RouterModule,
+        AppRoutingModule,
+        DropdownModule,
+        TooltipModule
     ],
     exports: [],
     declarations: [
-        AppComponent
+        AppComponent,
+        CurrencyComponent
     ],
     providers: [
         RequestService,
