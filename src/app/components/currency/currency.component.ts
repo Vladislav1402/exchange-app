@@ -37,10 +37,29 @@ export class CurrencyComponent implements OnInit {
   }
 
   getRates(): void {
-    this.currencyService.getRates().subscribe(data => {
-      this.rates = data.conversion_rates;
-      this.convertAll();
-    });
+    this.currencyService.getRates().subscribe(
+      data => {
+        if (data.result === 'success') {
+          this.rates = data.conversion_rates;
+          this.convertAll();
+        } else {
+          this.setMockRates(); 
+        }
+      },
+      error => {
+        console.error('Error getting exchange rates::', error);
+        this.setMockRates(); 
+      }
+    );
+  }
+
+  setMockRates(): void {
+    this.rates = {
+      USD: 1,
+      EUR: 0.85,  
+      UAH: 41.6  
+    };
+    this.convertAll(); 
   }
 
   convertAll(): void {
